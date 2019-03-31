@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name kls7)(type KiCad)(uri ${KIPRJMOD}/kls7.pretty)(options "")(descr ""))
+  (lib (name pd9-2)(type KiCad)(uri ${KIPRJMOD}/pd9-2.pretty)(options "")(descr ""))
+  (lib (name switch)(type KiCad)(uri ${KIPRJMOD}/switch.pretty)(options "")(descr ""))
+)

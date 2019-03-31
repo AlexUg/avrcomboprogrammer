@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name mc74vhc1gt125)(type Legacy)(uri ${KIPRJMOD}/mc74vhc1gt125.lib)(options "")(descr ""))
+  (lib (name switch)(type Legacy)(uri ${KIPRJMOD}/switch.lib)(options "")(descr ""))
+)
