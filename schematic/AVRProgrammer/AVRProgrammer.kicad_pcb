@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 4)
+    (drawings 5)
     (tracks 307)
     (zones 0)
     (modules 40)
@@ -1765,6 +1765,9 @@
     )
   )
 
+  (gr_text "WARNING!!!\nSize of real connector may be greater.\nSo RX/TX LEDs and right mounting hole may be covered by connector case." (at 137 139) (layer F.Cu)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (target plus (at 122 123) (size 5) (width 0.15) (layer Edge.Cuts) (tstamp 5C9E6BAE))
   (target plus (at 147 123) (size 5) (width 0.15) (layer Edge.Cuts) (tstamp 5C9E6BAD))
   (target plus (at 147 77) (size 5) (width 0.15) (layer Edge.Cuts) (tstamp 5C9E6BAC))
