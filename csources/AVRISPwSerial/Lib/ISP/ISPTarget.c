@@ -221,12 +221,12 @@ ISPTarget_ConfigureRescueClock (void)
 
   DDRD |= (1 << PD0);
 
-  /* Start Timer 1 to generate a 4MHz clock on the OCR1A pin */
-  TIMSK1 = 0;
-  TCNT1 = 0;
-  OCR1A = ((F_CPU / 2 / ISP_RESCUE_CLOCK_SPEED) - 1);
-  TCCR1A = (1 << COM1A0);
-  TCCR1B = ((1 << WGM12) | (1 << CS10));
+  /* Start Timer 0 to generate a 4MHz clock on the OCR0B pin */
+  TIMSK0 = 0;
+  TCNT0 = 0;
+  OCR0A = ((F_CPU / 2 / ISP_RESCUE_CLOCK_SPEED) - 1);
+  TCCR0A = (1 << COM0B0) | (1 << WGM01);
+  TCCR0B = (1 << CS00);
 }
 
 /** Configures the AVR's timer ready to produce software SPI for the slower ISP speeds that

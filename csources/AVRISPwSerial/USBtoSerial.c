@@ -71,16 +71,15 @@ void
 SetupSerialHardware (void)
 {
 
-  /* Initialize TIMER1 to handle bootloader timeout and LED tasks.
+  /* Initialize TIMER3 to handle LED tasks.
    * With 16 MHz clock and 1/64 prescaler, timer 1 is clocked at 250 kHz
    * Our chosen compare match generates an interrupt every 1 ms.
-   * This interrupt is disabled selectively when doing memory reading, erasing,
-   * or writing since SPM has tight timing requirements.
    */
   OCR3AH = 0;
   OCR3AL = 250;
   TIMSK3 = (1 << OCIE3A);     // enable timer 1 output compare A match interrupt
   TCCR3B = ((1 << CS31) | (1 << CS30)); // 1/64 prescaler on timer 1 input
+  TCCR3A = 0;
 
   RingBuffer_InitBuffer (&USBtoUSART_Buffer, USBtoUSART_Buffer_Data, sizeof(USBtoUSART_Buffer_Data));
   RingBuffer_InitBuffer (&USARTtoUSB_Buffer, USARTtoUSB_Buffer_Data, sizeof(USARTtoUSB_Buffer_Data));

@@ -42,22 +42,54 @@ uint32_t CurrentAddress;
 /** Flag to indicate that the next read/write operation must update the device's current extended FLASH address */
 bool MustLoadExtendedAddress;
 
+///** ISR to manage timeouts whilst processing a V2Protocol command */
+//ISR(TIMER0_COMPA_vect, ISR_NOBLOCK)
+//{
+//  if (TimeoutTicksRemaining)
+//    TimeoutTicksRemaining--;
+//  else
+//    TCCR0B = 0;
+//}
+//
+//static inline
+//void initTimeoutTimer (void)
+//{
+//  /* Timeout timer initialization (~10ms period) */
+//  OCR0A = (((F_CPU / 1024) / 100) - 1);
+//  TCCR0A = (1 << WGM01);
+//  TIMSK0 = (1 << OCIE0A);
+//}
+//
+//static inline
+//void startTimeoutTimer (void)
+//{
+//  /* Reset timeout counter duration and start the timer */
+//  TimeoutTicksRemaining = COMMAND_TIMEOUT_TICKS;
+//  TCCR0B = ((1 << CS02) | (1 << CS00));
+//}
+//
+//static inline
+//void stopTimeoutTimer (void)
+//{
+//  /* Disable the timeout management timer */
+//  TCCR0B = 0;
+//}
+
 /** ISR to manage timeouts whilst processing a V2Protocol command */
-ISR(TIMER0_COMPA_vect, ISR_NOBLOCK)
+ISR(TIMER3_OVF_vect, ISR_NOBLOCK)
 {
   if (TimeoutTicksRemaining)
     TimeoutTicksRemaining--;
   else
-    TCCR0B = 0;
+    TCCR3B = 0;
 }
 
 static inline
 void initTimeoutTimer (void)
 {
   /* Timeout timer initialization (~10ms period) */
-  OCR0A = (((F_CPU / 1024) / 100) - 1);
-  TCCR0A = (1 << WGM01);
-  TIMSK0 = (1 << OCIE0A);
+  TCCR3A = (1 << WGM31); // FastPWM 9 bit (512)
+  TIMSK3 = (1 << TOIE3);
 }
 
 static inline
@@ -65,14 +97,14 @@ void startTimeoutTimer (void)
 {
   /* Reset timeout counter duration and start the timer */
   TimeoutTicksRemaining = COMMAND_TIMEOUT_TICKS;
-  TCCR0B = ((1 << CS02) | (1 << CS00));
+  TCCR3B = (1 << CS32);  // Prescaller 256
 }
 
 static inline
 void stopTimeoutTimer (void)
 {
   /* Disable the timeout management timer */
-  TCCR0B = 0;
+  TCCR3B = 0;
 }
 
 /** Initializes the hardware and software associated with the V2 protocol command handling. */
