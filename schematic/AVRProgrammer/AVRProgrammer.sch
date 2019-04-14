@@ -20,7 +20,7 @@ U 1 1 5A59B1C4
 P 1200 3650
 F 0 "J1" H 1278 3691 50  0000 L CNN
 F 1 "ProMicro_L" H 1000 4300 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical" H 1200 3650 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x12_P2.54mm_Vertical" H 1200 3650 50  0001 C CNN
 F 3 "" H 1200 3650 50  0001 C CNN
 	1    1200 3650
 	-1   0    0    -1  
@@ -28,13 +28,13 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x12 J2
 U 1 1 5A59B338
-P 1200 5250
-F 0 "J2" H 1278 5291 50  0000 L CNN
-F 1 "ProMicro_R" H 1000 5900 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical" H 1200 5250 50  0001 C CNN
-F 3 "" H 1200 5250 50  0001 C CNN
-	1    1200 5250
-	-1   0    0    1   
+P 1200 5200
+F 0 "J2" H 1278 5241 50  0000 L CNN
+F 1 "ProMicro_R" H 1000 5850 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x12_P2.54mm_Vertical" H 1200 5200 50  0001 C CNN
+F 3 "" H 1200 5200 50  0001 C CNN
+	1    1200 5200
+	-1   0    0    -1  
 $EndComp
 $Comp
 L power:PWR_FLAG #FLG03
@@ -95,27 +95,27 @@ Wire Wire Line
 Wire Wire Line
 	1400 4250 1550 4250
 Wire Wire Line
-	1400 4650 1550 4650
+	1400 5800 1550 5800
 Wire Wire Line
-	1400 4750 1550 4750
+	1400 5700 1550 5700
 Wire Wire Line
-	1400 4850 1550 4850
+	1400 5600 1550 5600
 Wire Wire Line
-	1400 4950 1550 4950
+	1400 5500 1550 5500
 Wire Wire Line
-	1400 5050 1550 5050
+	1400 5400 1550 5400
 Wire Wire Line
-	1400 5150 1550 5150
+	1400 5300 1550 5300
 Wire Wire Line
-	1400 5250 1550 5250
+	1400 5200 1550 5200
 Wire Wire Line
-	1400 5350 1550 5350
+	1400 5100 1550 5100
 Wire Wire Line
-	1400 5450 1550 5450
+	1400 5000 1550 5000
 Wire Wire Line
-	1400 5550 1550 5550
+	1400 4900 1550 4900
 Wire Wire Line
-	1400 5650 1550 5650
+	1400 4800 1550 4800
 Wire Wire Line
 	10550 750  10550 900 
 Wire Wire Line
@@ -150,7 +150,7 @@ U 1 1 5A59CEF3
 P 9800 2050
 F 0 "J3" H 9800 2465 50  0000 C CNN
 F 1 "ProgConn" H 9800 2374 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Horizontal" H 9800 850 50  0001 C CNN
+F 2 "Connector_IDC:IDC-Header_2x05_P2.54mm_Horizontal" H 9800 850 50  0001 C CNN
 F 3 "" H 9800 850 50  0001 C CNN
 	1    9800 2050
 	1    0    0    -1  
@@ -166,7 +166,7 @@ Wire Wire Line
 Wire Wire Line
 	7550 5050 7450 5050
 NoConn ~ 10100 2150
-NoConn ~ 1400 5750
+NoConn ~ 1400 4700
 $Comp
 L Switch:SW_Push SW1
 U 1 1 5A59F662
@@ -772,7 +772,7 @@ $Sheet
 S 3300 4250 550  200 
 U 5C9FD77F
 F0 "LED_RX" 50
-F1 "LED.sch" 50
+F1 "LED_RX.sch" 50
 F2 "IN" I L 3300 4350 50 
 $EndSheet
 Wire Wire Line
@@ -783,7 +783,7 @@ $Sheet
 S 3300 4650 550  200 
 U 5CA01110
 F0 "LED_TX" 50
-F1 "LED.sch" 50
+F1 "LED_TX.sch" 50
 F2 "IN" I L 3300 4750 50 
 $EndSheet
 Wire Wire Line
@@ -831,11 +831,11 @@ Text GLabel 10300 1850 2    50   Input ~ 0
 VCC_P
 Text GLabel 10300 2050 2    50   Input ~ 0
 GND
-Text GLabel 1550 4750 2    50   Input ~ 0
+Text GLabel 1550 5700 2    50   Input ~ 0
 MOSI
 Text GLabel 7500 2600 0    50   Input ~ 0
 SCK
-Text GLabel 1550 4950 2    50   Input ~ 0
+Text GLabel 1550 5500 2    50   Input ~ 0
 SCK
 Text GLabel 8800 2600 2    50   Input ~ 0
 SCK_P
@@ -843,7 +843,7 @@ Text GLabel 9400 1950 0    50   Input ~ 0
 SCK_P
 Text GLabel 6350 3800 0    50   Input ~ 0
 MISO
-Text GLabel 1550 4850 2    50   Input ~ 0
+Text GLabel 1550 5600 2    50   Input ~ 0
 MISO
 Text Label 2550 1650 0    50   ~ 0
 VCC_5_P
@@ -851,25 +851,25 @@ Text GLabel 7300 3800 2    50   Input ~ 0
 MISO_P
 Text GLabel 9400 1850 0    50   Input ~ 0
 MISO_P
-Text GLabel 1550 5050 2    50   Input ~ 0
+Text GLabel 1550 5400 2    50   Input ~ 0
 LED_NOT_RDY
-Text GLabel 1550 5150 2    50   Input ~ 0
+Text GLabel 1550 5300 2    50   Input ~ 0
 LED_RDY
-Text GLabel 1550 5250 2    50   Input ~ 0
+Text GLabel 1550 5200 2    50   Input ~ 0
 LED_ERR
-Text GLabel 1550 5350 2    50   Input ~ 0
+Text GLabel 1550 5100 2    50   Input ~ 0
 LED_ACT
-Text GLabel 1550 5450 2    50   Input ~ 0
+Text GLabel 1550 5000 2    50   Input ~ 0
 VCC
-Text GLabel 1550 5550 2    50   Input ~ 0
+Text GLabel 1550 4900 2    50   Input ~ 0
 RST
-Text GLabel 1550 5650 2    50   Input ~ 0
+Text GLabel 1550 4800 2    50   Input ~ 0
 GND
 Text GLabel 1150 6650 0    50   Input ~ 0
 RST
 Text GLabel 4500 6000 0    50   Input ~ 0
 TRST
-Text GLabel 1550 4650 2    50   Input ~ 0
+Text GLabel 1550 5800 2    50   Input ~ 0
 TRST
 Text GLabel 1550 3150 2    50   Input ~ 0
 TX
@@ -907,4 +907,48 @@ Text GLabel 1550 4250 2    50   Input ~ 0
 LED_RX
 Text GLabel 1550 4150 2    50   Input ~ 0
 LED_TX
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 5CB19C48
+P 750 7650
+F 0 "H1" H 850 7696 50  0000 L CNN
+F 1 "1" H 850 7605 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 750 7650 50  0001 C CNN
+F 3 "~" H 750 7650 50  0001 C CNN
+	1    750  7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 5CB1B2C5
+P 1050 7650
+F 0 "H2" H 1150 7696 50  0000 L CNN
+F 1 "1" H 1150 7605 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 1050 7650 50  0001 C CNN
+F 3 "~" H 1050 7650 50  0001 C CNN
+	1    1050 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 5CB1B425
+P 1350 7650
+F 0 "H3" H 1450 7696 50  0000 L CNN
+F 1 "1" H 1450 7605 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 1350 7650 50  0001 C CNN
+F 3 "~" H 1350 7650 50  0001 C CNN
+	1    1350 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 5CB1B5E8
+P 1650 7650
+F 0 "H4" H 1750 7696 50  0000 L CNN
+F 1 "1" H 1750 7605 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.7mm_M2.5" H 1650 7650 50  0001 C CNN
+F 3 "~" H 1650 7650 50  0001 C CNN
+	1    1650 7650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
