@@ -81,6 +81,10 @@ SetupSerialHardware (void)
   TCCR3B = ((1 << CS31) | (1 << CS30)); // 1/64 prescaler on timer 1 input
   TCCR3A = 0;
 
+  /* Pull target /RESET line high */
+  AUX_LINE_DDR |= AUX_LINE_MASK;
+  AUX_LINE_PORT &= ~AUX_LINE_MASK;
+
   RingBuffer_InitBuffer (&USBtoUSART_Buffer, USBtoUSART_Buffer_Data, sizeof(USBtoUSART_Buffer_Data));
   RingBuffer_InitBuffer (&USARTtoUSB_Buffer, USARTtoUSB_Buffer_Data, sizeof(USARTtoUSB_Buffer_Data));
 
@@ -220,6 +224,24 @@ EVENT_CDC_Device_LineEncodingChanged (USB_ClassInfo_CDC_Device_t* const CDCInter
 
   /* Release the TX line after the USART has been reconfigured */
   PORTD &= ~(1 << 3);
+}
+
+/** Event handler for the CDC Class driver Host-to-Device Line Encoding Changed event.
+ *
+ *  \param[in] CDCInterfaceInfo  Pointer to the CDC class interface configuration structure being referenced
+ */
+void EVENT_CDC_Device_ControLineStateChanged(USB_ClassInfo_CDC_Device_t* const CDCInterfaceInfo)
+{
+ bool CurrentDTRState = (CDCInterfaceInfo->State.ControlLineStates.HostToDevice & CDC_CONTROL_LINE_OUT_DTR);
+
+ if (CurrentDTRState)
+   {
+     AUX_LINE_PORT |= AUX_LINE_MASK;
+   }
+ else
+   {
+     AUX_LINE_PORT &= ~AUX_LINE_MASK;
+   }
 }
 
 //uint16_t ctr = 0;
