@@ -11,7 +11,7 @@
 
 # Run "make help" for target help.
 
-LUFA_PATH    = /home/alexandr/git/lufa/LUFA
+LUFA_PATH    = /home/alexandr/git/electric/lufa/LUFA
 
 MCU          = atmega32u4
 ARCH         = AVR8

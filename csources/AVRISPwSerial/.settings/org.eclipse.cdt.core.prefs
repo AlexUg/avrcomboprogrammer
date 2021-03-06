@@ -1,6 +1,11 @@
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=false
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=false
+doxygen/doxygen_use_structural_commands=false
 eclipse.preferences.version=1
 environment/project/0.1317671344/LUFA_PATH/delimiter=\:
-environment/project/0.1317671344/LUFA_PATH/operation=append
-environment/project/0.1317671344/LUFA_PATH/value=/home/alexandr/git/lufa/LUFA
+environment/project/0.1317671344/LUFA_PATH/operation=replace
+environment/project/0.1317671344/LUFA_PATH/value=/home/alexandr/git/electric/lufa/LUFA
 environment/project/0.1317671344/append=true
 environment/project/0.1317671344/appendContributed=true

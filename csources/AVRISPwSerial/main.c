@@ -39,7 +39,6 @@
 
 
 uint8_t activeConfig __attribute__ ((section (".noinit")));
-//uint8_t activeConfig;
 
 void
 SelectConfiguration(void);
@@ -145,7 +144,7 @@ EVENT_USB_Device_ConfigurationChanged (void)
 void
 SelectConfiguration(void)
 {
-  activeConfig = (activeConfig + 1) % 2;
+  activeConfig = (activeConfig + 1) & 1;
 }
 
 /** This function is called by the library when in device mode, and must be overridden (see library "USB Descriptors"
